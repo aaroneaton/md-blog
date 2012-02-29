@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost/md-blog/';
+$config['base_url']	= 'http://local.localhost/md-blog/';
 
 /*
 |--------------------------------------------------------------------------
