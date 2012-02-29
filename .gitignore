@@ -1,1 +1,4 @@
 applicaiton/config/config.php
+application/config/database.php
+user_guide/*
+*.bak
