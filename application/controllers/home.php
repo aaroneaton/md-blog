@@ -19,9 +19,12 @@ class Home extends CI_Controller {
 		$body_data['posts'] = array();
 		foreach ( $files as $file ) {
 		
-			$title = $file;
 			$content = read_file( $directory . $file );
-			array_push( $body_data['posts'], array( 'title' => $title, 'content' => $content ) );
+      preg_match( '/%title:\s(.*)/', $content, $title );
+
+      $content = preg_replace( '/^%.*\n/m', '', $content );
+      $content = parse_markdown_extra( $content );
+			array_push( $body_data['posts'], array( 'title' => $title[1], 'content' => $content ) );
 		
 		}
 		

@@ -4,9 +4,8 @@
 	
 	<?php foreach ( $posts as $post ) : ?>
 	<h1><?php echo $post['title']; ?></h1>
-	<p><?php echo $post['content']; ?></p>
-	<?php endforeach; ?>
-	
+	<?php echo $post['content']; ?>
+	<?php endforeach; ?>	
 	</div>
 </div>
 </div>
