@@ -1,4 +1,6 @@
-%title: Secont Post!
+%title: Second Post!
+%date: 2012-02-21
+%tags: markdown,second
 
 ## Numbered list ##
 
