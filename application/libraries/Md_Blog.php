@@ -33,15 +33,10 @@ class Md_Blog {
 	
 	if ( in_array( $tag, $tags ) ) {
 	
-		$response = 'Found ' . $tag;
+    return $file;
 	
-	} else {
-	
-		$response = $tag . ' Not Found';
-	
-	}
-	
-	return $response;
+	}	
+
 	
   }
 

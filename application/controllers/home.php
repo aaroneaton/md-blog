@@ -64,20 +64,38 @@ class Home extends CI_Controller {
 		$base = './site/';		
 		$directory = $base . 'blog/';
 		
+    // Get all of the posts in the blog directory
 		$files = directory_map( $directory );
-		$posts = array();
-		$tags = array();
+
+		$matches = array();
 		foreach ( $files as $file ) {
 		
-			$match = ( $this->md_blog->has_tag( $directory, $file, $tag ) );
-			array_push( $tags, $match );
-			
-			$p = $this->md_blog->parse_file( $directory, $file );
-			array_push( $posts, $p );
-			
+      // Check if post has the specified tag
+      $match = $this->md_blog->has_tag( $directory, $file, $tag );
+
+      // Add to the $matches array if it does
+      if ( $match ) {
+      
+        array_push( $matches, $match );
+      
+      }
 
 		}
-		$body_data['tags'] = $tags;
+
+    $posts = array();
+    foreach ( $matches as $match ) {
+    
+      // Gather the post data for the match
+      $p = $this->md_blog->parse_file( $directory, $match );
+      // Then push it to the $posts array
+      array_push( $posts, $p );
+    
+    }
+
+    // Put posts in DESC chronological order
+    $posts = array_reverse( $posts );
+
+    // Send the posts to the view
 		$body_data['posts'] = $posts;
 		
 		
