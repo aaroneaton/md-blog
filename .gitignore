@@ -2,3 +2,4 @@ applicaiton/config/config.php
 application/config/database.php
 user_guide/*
 *.bak
+application/config/config.php
