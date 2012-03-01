@@ -25,6 +25,25 @@ class Md_Blog {
     return $p;
   
   }
+  
+  public function has_tag( $directory, $file, $tag ) {
+  
+	$content = read_file( $directory . $file );
+	$tags = $this->get_tags( $content );
+	
+	if ( in_array( $tag, $tags ) ) {
+	
+		$response = 'Found ' . $tag;
+	
+	} else {
+	
+		$response = $tag . ' Not Found';
+	
+	}
+	
+	return $response;
+	
+  }
 
   private function get_title( $content ) {
   
@@ -52,6 +71,7 @@ class Md_Blog {
     // Convert into an array
     $tags = explode( ',', $tags[1] );
 
+	$tags = array_map( 'trim', $tags );
     return $tags;
   
   }

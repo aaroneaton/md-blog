@@ -55,5 +55,38 @@ class Home extends CI_Controller {
 		$this->load->view( 'layouts/main', $layout_data );
 
   }
+  
+  public function tag( $tag ) {
+	
+		$this->load->helper( 'file' );
+		$this->load->helper( 'directory' );
+
+		$base = './site/';		
+		$directory = $base . 'blog/';
+		
+		$files = directory_map( $directory );
+		$posts = array();
+		$tags = array();
+		foreach ( $files as $file ) {
+		
+			$match = ( $this->md_blog->has_tag( $directory, $file, $tag ) );
+			array_push( $tags, $match );
+			
+			$p = $this->md_blog->parse_file( $directory, $file );
+			array_push( $posts, $p );
+			
+
+		}
+		$body_data['tags'] = $tags;
+		$body_data['posts'] = $posts;
+		
+		
+		$layout_data['navigation'] = $this->load->view( 'partials/nav', '', TRUE );
+		$layout_data['body'] = $this->load->view( 'tags/index', $body_data, TRUE );
+		$layout_data['footer'] = $this->load->view( 'partials/footer', '', TRUE);
+	  $this->output->enable_profiler(TRUE);	
+		$this->load->view( 'layouts/main', $layout_data );
+	
+	}
 
 }
