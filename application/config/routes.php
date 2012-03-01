@@ -40,8 +40,13 @@
 
 $route['default_controller'] = "home";
 $route['404_override'] = '';
+<<<<<<< HEAD
 $route['(:any)'] = 'home/view/$1';
 $route['tag/(:any)'] = 'home/tag/$1';
+=======
+$route['tag/(:any)'] = 'home/tag/$1';
+$route['(:any)'] = 'home/view/$1';
+>>>>>>> tags
 
 
 /* End of file routes.php */
