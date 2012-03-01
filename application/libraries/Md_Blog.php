@@ -25,8 +25,6 @@ class Md_Blog {
     return $p;
   
   }
-<<<<<<< HEAD
-=======
   
   public function has_tag( $directory, $file, $tag ) {
   
@@ -41,7 +39,6 @@ class Md_Blog {
 
 	
   }
->>>>>>> tags
 
   private function get_title( $content ) {
   
@@ -69,10 +66,8 @@ class Md_Blog {
     // Convert into an array
     $tags = explode( ',', $tags[1] );
 
-<<<<<<< HEAD
-=======
-	$tags = array_map( 'trim', $tags );
->>>>>>> tags
+    $tags = array_map( 'trim', $tags );
+
     return $tags;
   
   }

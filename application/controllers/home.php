@@ -55,8 +55,6 @@ class Home extends CI_Controller {
 		$this->load->view( 'layouts/main', $layout_data );
 
   }
-<<<<<<< HEAD
-=======
   
   public function tag( $tag ) {
 	
